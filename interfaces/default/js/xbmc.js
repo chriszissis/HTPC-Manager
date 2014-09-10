@@ -132,7 +132,7 @@ $(document).ready(function() {
 
     // Load more titles on scroll
     $(window).scroll(function() {
-        if($(window).scrollTop() + $(window).height() >= $(document).height() - 10) {
+        if($(window).scrollTop() + $(window).height() >= $(document).height() - 400) {
             reloadTab()
         }
 
