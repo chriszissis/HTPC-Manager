@@ -126,8 +126,10 @@ $(document).ready(function() {
 
     // Filter on searchfield changes
     $(".search").on('input', function (e) {
-        searchString = $(this).val();
-        reloadTab()
+		searchString = $(this).val();
+        window.setTimeout(function() {
+			reloadTab();
+		}, 1000);
     });
 
     // Load more titles on scroll
