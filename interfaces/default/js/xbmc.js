@@ -152,6 +152,7 @@ function loadMovies(options) {
     if (movieLoad.options != optionstr) {
         movieLoad.last = 0;
         $('#movie-grid').empty();
+		$('#movie-stats').empty();
     }
     movieLoad.options = optionstr;
 
@@ -175,13 +176,15 @@ function loadMovies(options) {
         dataType: 'json',
         success: function (data) {
             if (data == null) return errorHandler();
-
+			
+			$('#movie-stats').append("<p><strong>Count</strong>: " + data.limits.total + "</p>");
+			
             if (data.limits.end == data.limits.total) {
                 movieLoad.last = -1;
             } else {
                 movieLoad.last += movieLoad.limit;
             }
-
+			
             if (data.movies != undefined) {
                 $.each(data.movies, function (i, movie) {
                     var movieItem = $('<li>').attr('title', movie.title);
