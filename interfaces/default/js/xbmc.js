@@ -177,7 +177,7 @@ function loadMovies(options) {
         success: function (data) {
             if (data == null) return errorHandler();
 			
-			$('#movie-stats').append("<p><strong>Count</strong>: " + data.limits.total + "</p>");
+			$('#movie-stats').html("<p><strong>Count</strong>: " + data.limits.total + "</p>");
 			
             if (data.limits.end == data.limits.total) {
                 movieLoad.last = -1;
